@@ -1,6 +1,6 @@
-# happi-heyday
+# heyday
 
-Production: https://heydayle.github.io/Congratulatory-letter/#/
+Production: https://heydayle.github.io/Play_Mouse/#/
 
 ## Project setup
 ```
