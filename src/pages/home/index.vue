@@ -1,6 +1,6 @@
 <template>
 <div>
-  <div class="tw-overflow-hidden p-4 tw-flex tw-items-center tw-justify-center" style="height: 85vh">
+  <div class="tw-overflow-hidden tw-pt-6 tw-flex tw-items-center tw-justify-center tw-w-70" style="height: 75vh">
     <kinesis-container class="tw-my-auto">
         <kinesis-element class="tw-flex" :strength="10" type="depth">
           <!-- <img class="tw-m-auto tw-text-center tw-w-60" src="../../assets/heyday.png"/> -->
@@ -31,37 +31,62 @@
         </kinesis-element>
     </kinesis-container>
   </div>
-  <div class="tw-flex tw-justify-center tw-space-x-8">
-    <kinesis-container>
-      <kinesis-element :strength="20" type="depth">
-        <a href="https://fb.com/heydaysea">
-          <img class="tw-m-auto tw-text-center tw-w-26" src="../../assets/social.png"/>
-        </a>
-      </kinesis-element>
-    </kinesis-container>
-    <kinesis-container>
-      <kinesis-element :strength="20" type="depth_inv">
-        <a href="https://instagram.com/heyday.le">
-          <img class="tw-m-auto tw-text-center tw-w-26" src="../../assets/instagram.png"/>
-        </a>
-      </kinesis-element>
-    </kinesis-container>
-    <kinesis-container>
-      <kinesis-element :strength="20" type="depth">
-        <a href="https://linkedin.com/in/thinh-le-profile">
-          <img class="tw-m-auto tw-text-center tw-w-26" src="../../assets/linkedin.png"/>
-        </a>
-      </kinesis-element>
-    </kinesis-container>
-    <kinesis-container>
-      <kinesis-element :strength="20" type="depth_inv">
-        <a href="https://github.com/heydayle">
-          <img class="tw-m-auto tw-text-center tw-w-26" src="../../assets/github.png"/>
-        </a>
-      </kinesis-element>
-    </kinesis-container>
-  </div>
-    
+  <kinesis-container>
+    <kinesis-element :strength="10" type="depth">
+      <div>
+        <kinesis-container class="tw-flex tw-justify-center tw-items-end tw-pb-4 tw-space-x-2">
+          <kinesis-element :strength="10" type="depth">
+            <img class="tw-m-auto tw-text-center tw-w-6" src="../../assets/h-char.png"/>
+          </kinesis-element>
+          <kinesis-element :strength="7" type="depth_inv">
+            <img class="tw-m-auto tw-text-center tw-w-6" src="../../assets/e-char.png"/>
+          </kinesis-element>
+          <kinesis-element :strength="6" type="depth">
+            <img class="tw-m-auto tw-text-center tw-w-6" src="../../assets/y-char.png"/>
+          </kinesis-element>
+          <kinesis-element :strength="9" type="depth">
+            <img class="tw-m-auto tw-text-center tw-w-6" src="../../assets/d-char.png"/>
+          </kinesis-element>
+          <kinesis-element :strength="15" type="depth_inv">
+            <img class="tw-m-auto tw-text-center tw-w-8" src="../../assets/a-char.png"/>
+          </kinesis-element>
+          <kinesis-element :strength="9" type="depth">
+            <img class="tw-m-auto tw-text-center tw-w-6" src="../../assets/y-char.png"/>
+          </kinesis-element>
+        </kinesis-container>
+      </div>
+      <div class="tw-flex tw-justify-center tw-space-x-8">
+        <kinesis-container>
+          <kinesis-element :strength="20" type="depth">
+            <a href="https://fb.com/heydaysea">
+              <img class="tw-m-auto tw-text-center tw-w-26" src="../../assets/social.png"/>
+            </a>
+          </kinesis-element>
+        </kinesis-container>
+        <kinesis-container>
+          <kinesis-element :strength="20" type="depth_inv">
+            <a href="https://instagram.com/heyday.le">
+              <img class="tw-m-auto tw-text-center tw-w-26" src="../../assets/instagram.png"/>
+            </a>
+          </kinesis-element>
+        </kinesis-container>
+        <kinesis-container>
+          <kinesis-element :strength="20" type="depth">
+            <a href="https://linkedin.com/in/thinh-le-profile">
+              <img class="tw-m-auto tw-text-center tw-w-26" src="../../assets/linkedin.png"/>
+            </a>
+          </kinesis-element>
+        </kinesis-container>
+        <kinesis-container>
+          <kinesis-element :strength="20" type="depth_inv">
+            <a href="https://github.com/heydayle">
+              <img class="tw-m-auto tw-text-center tw-w-26" src="../../assets/github.png"/>
+            </a>
+          </kinesis-element>
+        </kinesis-container>
+      </div>
+    </kinesis-element>
+  </kinesis-container>
 </div>
   
 </template>
