@@ -31,6 +31,7 @@
         </kinesis-element>
     </kinesis-container>
   </div>
+  <div class="tw-flex tw-justify-center tw-space-x-8">
     <kinesis-container>
       <kinesis-element :strength="20" type="depth">
         <a href="https://fb.com/heydaysea">
@@ -38,6 +39,29 @@
         </a>
       </kinesis-element>
     </kinesis-container>
+    <kinesis-container>
+      <kinesis-element :strength="20" type="depth_inv">
+        <a href="https://instagram.com/heyday.le">
+          <img class="tw-m-auto tw-text-center tw-w-26" src="../../assets/instagram.png"/>
+        </a>
+      </kinesis-element>
+    </kinesis-container>
+    <kinesis-container>
+      <kinesis-element :strength="20" type="depth">
+        <a href="https://linkedin.com/in/thinh-le-profile">
+          <img class="tw-m-auto tw-text-center tw-w-26" src="../../assets/linkedin.png"/>
+        </a>
+      </kinesis-element>
+    </kinesis-container>
+    <kinesis-container>
+      <kinesis-element :strength="20" type="depth_inv">
+        <a href="https://github.com/heydayle">
+          <img class="tw-m-auto tw-text-center tw-w-26" src="../../assets/github.png"/>
+        </a>
+      </kinesis-element>
+    </kinesis-container>
+  </div>
+    
 </div>
   
 </template>
@@ -66,42 +90,42 @@ export default {
     position: relative;
   }
   .shape-h {
-    bottom: 90px;
-    left: 155px
+    bottom: 5.625rem;
+    left: 9.6875rem
   }
   .shape-y {
-    top: 105px;
-    right: 125px;
+    top: 6.5625rem;
+    right: 7.8125rem;
   }
   @for $i from 0 to 3 {
     .shape-wave-right-#{$i} {
       @if $i == 0 {
-        top: 87px;
-        right: 115px;
+        top: 5.4375rem;
+        right: 7.1875rem;
       }
       @if $i == 1 {
-        top: 110px;
-        right: 204px;
+        top: 6.875rem;
+        right: 12.75rem;
       }
       @if $i == 2 {
-        top: 133px;
-        right: 294px;
+        top: 8.3125rem;
+        right: 18.375rem;
       }
     }
   }
   @for $i from 0 to 3 {
     .shape-wave-left-#{$i} {
       @if $i == 0 {
-        top: 132px;
-        left: 290px;
+        top: 8.25rem;
+        left: 18.125rem;
       }
       @if $i == 1 {
-        top: 110px;
-        left: 247px;
+        top: 6.875rem;
+        left: 15.4375rem;
       }
       @if $i == 2 {
-        top: 88px;
-        left: 205px;  
+        top: 5.5rem;
+        left: 12.8125rem;  
       }
     }
   }
