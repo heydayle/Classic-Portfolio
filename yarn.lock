@@ -969,6 +969,13 @@
     cssnano-preset-default "^4.0.0"
     postcss "^7.0.0"
 
+"@luxdamore/vue-cursor-fx@^1.6.2":
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/@luxdamore/vue-cursor-fx/-/vue-cursor-fx-1.6.2.tgz#0acf7ef3c1adcbcb0ac8fac252cf1e4a68d96319"
+  integrity sha512-oEdrlK4cFUIM3diL6I2as022gpTjOhrcmEtO7CFP5RL5LfQCMvMM1zy+F7AWBRTpTgO9iq3DL2StRcneolD73g==
+  dependencies:
+    vue "^2.6.11"
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.npm.taobao.org/@mrmlnc/readdir-enhanced/download/@mrmlnc/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"
@@ -8731,7 +8738,7 @@ vue-template-es2015-compiler@^1.9.0:
   resolved "https://registry.npm.taobao.org/vue-template-es2015-compiler/download/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha1-HuO8mhbsv1EYvjNLsV+cRvgvWCU=
 
-vue@^2.7.2:
+vue@^2.6.11, vue@^2.7.2:
   version "2.7.4"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.7.4.tgz#f5578bd47f0cef8d4f3eb4c6bbebad47341d11fb"
   integrity sha512-8KGyyzFSj/FrKj1y7jyEpv8J4osgZx6Lk1lVzh1aP4BqsXZhATH1r0gdJNz00MMyBhK0/m2cNoPuOZ1NzeiUEw==

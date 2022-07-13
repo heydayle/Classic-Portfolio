@@ -12,5 +12,5 @@ export default {
 };
 </script>
 <style lang="scss" scope>
-  @import "./styles";
+  @import "./styles"
 </style>

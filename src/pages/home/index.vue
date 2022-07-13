@@ -1,158 +1,291 @@
 <template>
-<div>
-  <div class="tw-overflow-hidden tw-pt-6 tw-flex tw-items-center tw-justify-center tw-w-70" style="height: 75vh">
-    <kinesis-container class="tw-my-auto">
-        <kinesis-element class="tw-flex" :strength="10" type="depth">
-          <!-- <img class="tw-m-auto tw-text-center tw-w-60" src="../../assets/heyday.png"/> -->
-          <kinesis-element :strength="20" type="depth_inv">
-            <img class="shape-wave-left-0 tw-m-auto tw-text-center tw-w-26" src="../../assets/wave2.png"/>
+  <div class="tw-py-10" :class="mode ? 'tw-bg-black' : ''" style="height: 100vh">
+    <kinesis-container>
+      <kinesis-element :strength="10" type="depth">
+        <div class="tw-flex tw-items-center tw-justify-center">
+          <kinesis-container
+            class="tw-overflow-hidden tw-pt-6 tw-flex tw-items-center tw-justify-center tw-w-66"
+            style="height: 75vh"
+          >
+            <kinesis-element class="tw-flex" :strength="10" type="depth">
+              <!-- <img class="tw-m-auto tw-text-center tw-w-60" src="../../assets/heyday.png"/> -->
+              <kinesis-element :strength="20" type="depth_inv">
+                <img
+                  data-cursor-hover
+                  class="shape-wave-left-0 tw-m-auto tw-text-center tw-w-26"
+                  src="../../assets/wave2.png"
+                />
+              </kinesis-element>
+              <kinesis-element :strength="20" type="depth_inv">
+                <img
+                  data-cursor-hover
+                  class="shape-wave-left-1 tw-m-auto tw-text-center tw-w-26"
+                  src="../../assets/wave2.png"
+                />
+              </kinesis-element>
+              <kinesis-element :strength="20" type="depth_inv">
+                <img
+                  data-cursor-hover
+                  class="shape-wave-left-2 tw-m-auto tw-text-center tw-w-26"
+                  src="../../assets/wave2.png"
+                />
+              </kinesis-element>
+              <kinesis-element :strength="-15" type="depth">
+                <img
+                  data-cursor-hover
+                  class="shape-h tw-m-auto tw-text-center tw-w-34"
+                  src="../../assets/h.png"
+                />
+              </kinesis-element>
+              <kinesis-element :strength="-15" type="depth_inv">
+                <img
+                  data-cursor-hover
+                  class="shape-y tw-m-auto tw-text-center tw-w-26"
+                  src="../../assets/y3.png"
+                />
+              </kinesis-element>
+              <kinesis-element :strength="20" type="depth">
+                <img
+                  data-cursor-hover
+                  class="shape-wave-right-0 tw-m-auto tw-text-center tw-w-26"
+                  src="../../assets/wave1.png"
+                />
+              </kinesis-element>
+              <kinesis-element :strength="20" type="depth">
+                <img
+                  data-cursor-hover
+                  class="shape-wave-right-1 tw-m-auto tw-text-center tw-w-26"
+                  src="../../assets/wave1.png"
+                />
+              </kinesis-element>
+              <kinesis-element :strength="20" type="depth">
+                <img
+                  data-cursor-hover
+                  class="shape-wave-right-2 tw-m-auto tw-text-center tw-w-26"
+                  src="../../assets/wave1.png"
+                />
+              </kinesis-element>
+            </kinesis-element>
+          </kinesis-container>
+          <!-- <kinesis-container>
+            <kinesis-element :strength="10" type="depth">
+              <a href="https://heydayle.github.io/Portfolio/">
+                Portfolio
+              </a>
+            </kinesis-element>
+          </kinesis-container> -->
+        </div>
+        <div class="tw-relative">
+          <kinesis-container>
+            <kinesis-element
+              data-cursor-hover
+              class="tw-absolute tw-left-80 tw-bottom-20"
+              :strength="0.2"
+              type="scale"
+            >
+              <v-btn href="https://fb.com/heydaysea" icon>
+                <v-img src="../../assets/icon3d/facebook.png" class="tw-w-12" />
+              </v-btn>
+            </kinesis-element>
+          </kinesis-container>
+          <kinesis-container>
+            <kinesis-element
+              data-cursor-hover
+              class="tw-absolute tw-right-40 tw-bottom-10"
+              :strength="1"
+              type="scale"
+            >
+              <v-btn href="https://instagram.com/heyday.le" icon>
+                <v-img
+                  src="../../assets/icon3d/instagram.png"
+                  class="tw-w-12"
+                />
+              </v-btn>
+            </kinesis-element>
+          </kinesis-container>
+          <kinesis-container>
+            <kinesis-element
+              data-cursor-hover
+              class="tw-absolute tw-right-80 tw-bottom-80"
+              :strength="0.2"
+              type="scale"
+            >
+              <v-btn href="https://linkedin.com/in/thinh-le-profile/" icon>
+                <v-img src="../../assets/icon3d/linkedin.png" class="tw-w-10" />
+              </v-btn>
+            </kinesis-element>
+          </kinesis-container>
+          <kinesis-container>
+            <kinesis-element
+              data-cursor-hover
+              class="tw-absolute tw-left-20 tw-bottom-80"
+              :strength="0.2"
+              type="scale"
+            >
+              <v-btn v-if="mode" class="tw-animate-flipIn" @click="changeMode" icon>
+                <v-img class="tw-w-12" src="../../assets/icon3d/crescent.png" />
+              </v-btn>  
+              <v-btn v-else @click="changeMode" icon>
+                <v-img class="tw-animate-flipOut tw-w-12" src="../../assets/icon3d/cloud.png" />
+              </v-btn>  
+            </kinesis-element>
+          </kinesis-container>
+          <kinesis-container>
+            <kinesis-element
+              data-cursor-hover
+              class="tw-absolute tw-right-80 tw-bottom-80"
+              :strength="0.2"
+              type="scale"
+            >
+              <v-btn href="https://linkedin.com/in/thinh-le-profile/" icon>
+                <v-img src="../../assets/icon3d/linkedin.png" class="tw-w-10" />
+              </v-btn>
+            </kinesis-element>
+          </kinesis-container>
+        </div>
+        <kinesis-container>
+          <kinesis-element data-cursor-hover :strength="10" type="depth">
+            <div>
+              <kinesis-container
+                class="tw-flex tw-justify-center tw-items-end tw-pb-4 tw-space-x-2"
+              >
+                <kinesis-element :strength="10" type="depth">
+                  <img
+                    class="tw-m-auto tw-text-center tw-w-6"
+                    src="../../assets/h-char.png"
+                  />
+                </kinesis-element>
+                <kinesis-element :strength="7" type="depth_inv">
+                  <img
+                    class="tw-m-auto tw-text-center tw-w-6"
+                    src="../../assets/e-char.png"
+                  />
+                </kinesis-element>
+                <kinesis-element :strength="6" type="depth">
+                  <img
+                    class="tw-m-auto tw-text-center tw-w-6 tw-relative tw-top-2"
+                    src="../../assets/y-char.png"
+                  />
+                </kinesis-element>
+                <kinesis-element :strength="9" type="depth">
+                  <img
+                    class="tw-m-auto tw-text-center tw-w-6"
+                    src="../../assets/d-char.png"
+                  />
+                </kinesis-element>
+                <kinesis-element :strength="15" type="depth_inv">
+                  <img
+                    class="tw-m-auto tw-text-center tw-w-8"
+                    src="../../assets/a-char.png"
+                  />
+                </kinesis-element>
+                <kinesis-element :strength="9" type="depth">
+                  <img
+                    class="tw-m-auto tw-text-center tw-w-6 tw-relative tw-top-2"
+                    src="../../assets/y-char.png"
+                  />
+                </kinesis-element>
+              </kinesis-container>
+            </div>
           </kinesis-element>
-          <kinesis-element :strength="20" type="depth_inv">
-            <img class="shape-wave-left-1 tw-m-auto tw-text-center tw-w-26" src="../../assets/wave2.png"/>
-          </kinesis-element>
-          <kinesis-element :strength="20" type="depth_inv">
-            <img class="shape-wave-left-2 tw-m-auto tw-text-center tw-w-26" src="../../assets/wave2.png"/>
-          </kinesis-element>
-          <kinesis-element :strength="10" type="depth">
-            <img class="shape-h tw-m-auto tw-text-center tw-w-34" src="../../assets/h.png"/>
-          </kinesis-element>
-          <kinesis-element :strength="10" type="depth_inv">
-            <img class="shape-y tw-m-auto tw-text-center tw-w-26" src="../../assets/y3.png"/>
-          </kinesis-element>
-          <kinesis-element :strength="20" type="depth">
-            <img class="shape-wave-right-0 tw-m-auto tw-text-center tw-w-26" src="../../assets/wave1.png"/>
-          </kinesis-element>
-          <kinesis-element :strength="20" type="depth">
-            <img class="shape-wave-right-1 tw-m-auto tw-text-center tw-w-26" src="../../assets/wave1.png"/>
-          </kinesis-element>
-          <kinesis-element :strength="20" type="depth">
-            <img class="shape-wave-right-2 tw-m-auto tw-text-center tw-w-26" src="../../assets/wave1.png"/>
-          </kinesis-element>
-        </kinesis-element>
+        </kinesis-container>
+      </kinesis-element>
     </kinesis-container>
+    <cursor-fx
+      :config="cursorConfig"
+      color="#118ab2"
+      color-hover="#06d6a0"
+      outside-size="65px"
+      hide-inside
+    />
   </div>
-  <kinesis-container>
-    <kinesis-element :strength="10" type="depth">
-      <div>
-        <kinesis-container class="tw-flex tw-justify-center tw-items-end tw-pb-4 tw-space-x-2">
-          <kinesis-element :strength="10" type="depth">
-            <img class="tw-m-auto tw-text-center tw-w-6" src="../../assets/h-char.png"/>
-          </kinesis-element>
-          <kinesis-element :strength="7" type="depth_inv">
-            <img class="tw-m-auto tw-text-center tw-w-6" src="../../assets/e-char.png"/>
-          </kinesis-element>
-          <kinesis-element :strength="6" type="depth">
-            <img class="tw-m-auto tw-text-center tw-w-6" src="../../assets/y-char.png"/>
-          </kinesis-element>
-          <kinesis-element :strength="9" type="depth">
-            <img class="tw-m-auto tw-text-center tw-w-6" src="../../assets/d-char.png"/>
-          </kinesis-element>
-          <kinesis-element :strength="15" type="depth_inv">
-            <img class="tw-m-auto tw-text-center tw-w-8" src="../../assets/a-char.png"/>
-          </kinesis-element>
-          <kinesis-element :strength="9" type="depth">
-            <img class="tw-m-auto tw-text-center tw-w-6" src="../../assets/y-char.png"/>
-          </kinesis-element>
-        </kinesis-container>
-      </div>
-      <div class="tw-flex tw-justify-center tw-space-x-8">
-        <kinesis-container>
-          <kinesis-element :strength="20" type="depth">
-            <a href="https://fb.com/heydaysea">
-              <img class="tw-m-auto tw-text-center tw-w-26" src="../../assets/social.png"/>
-            </a>
-          </kinesis-element>
-        </kinesis-container>
-        <kinesis-container>
-          <kinesis-element :strength="20" type="depth_inv">
-            <a href="https://instagram.com/heyday.le">
-              <img class="tw-m-auto tw-text-center tw-w-26" src="../../assets/instagram.png"/>
-            </a>
-          </kinesis-element>
-        </kinesis-container>
-        <kinesis-container>
-          <kinesis-element :strength="20" type="depth">
-            <a href="https://linkedin.com/in/thinh-le-profile">
-              <img class="tw-m-auto tw-text-center tw-w-26" src="../../assets/linkedin.png"/>
-            </a>
-          </kinesis-element>
-        </kinesis-container>
-        <kinesis-container>
-          <kinesis-element :strength="20" type="depth_inv">
-            <a href="https://github.com/heydayle">
-              <img class="tw-m-auto tw-text-center tw-w-26" src="../../assets/github.png"/>
-            </a>
-          </kinesis-element>
-        </kinesis-container>
-      </div>
-    </kinesis-element>
-  </kinesis-container>
-</div>
-  
 </template>
 
 <script>
-import { KinesisContainer, KinesisElement, } from "vue-kinesis";
+import { KinesisContainer, KinesisElement } from "vue-kinesis";
+import { CursorFx } from "@luxdamore/vue-cursor-fx";
 export default {
   components: {
     KinesisContainer,
     KinesisElement,
+    CursorFx,
   },
   data() {
     return {
-      audio:
-        "https://open.spotify.com/track/5hgX8pSZSOcKhsvzldsgWy?si=0a153b813aca41be",
+      cursorConfig: {
+        lerps: {
+          dot: 0,
+          circle: 0.2,
+          custom: 0.23,
+        },
+        scale: {
+          ratio: 0.18,
+          min: 0.5,
+          max: 1,
+        },
+        opacity: 0.8,
+      },
+      mode: true,
+      dark: 'cloud.png',
+      light: 'crescent.png'
     };
   },
   computed: {},
   created() {},
   mounted() {},
-  methods: {},
+  methods: {
+    changeMode() {
+      this.mode = !this.mode
+    }
+  },
 };
 </script>
+<style src="@luxdamore/vue-cursor-fx/dist/CursorFx.css"></style>
 <style lang="scss">
-  img {
-    position: relative;
-  }
-  .shape-h {
-    bottom: 5.625rem;
-    left: 9.6875rem
-  }
-  .shape-y {
-    top: 6.5625rem;
-    right: 7.8125rem;
-  }
-  @for $i from 0 to 3 {
-    .shape-wave-right-#{$i} {
-      @if $i == 0 {
-        top: 5.4375rem;
-        right: 7.1875rem;
-      }
-      @if $i == 1 {
-        top: 6.875rem;
-        right: 12.75rem;
-      }
-      @if $i == 2 {
-        top: 8.3125rem;
-        right: 18.375rem;
-      }
+a {
+  cursor: normal !important;
+}
+img {
+  position: relative;
+}
+.shape-h {
+  bottom: 5.625rem;
+  left: 9.6875rem;
+}
+.shape-y {
+  top: 6.5625rem;
+  right: 7.8125rem;
+}
+@for $i from 0 to 3 {
+  .shape-wave-right-#{$i} {
+    @if $i == 0 {
+      top: 5.4375rem;
+      right: 7.1875rem;
+    }
+    @if $i == 1 {
+      top: 6.875rem;
+      right: 12.75rem;
+    }
+    @if $i == 2 {
+      top: 8.3125rem;
+      right: 18.375rem;
     }
   }
-  @for $i from 0 to 3 {
-    .shape-wave-left-#{$i} {
-      @if $i == 0 {
-        top: 8.25rem;
-        left: 18.125rem;
-      }
-      @if $i == 1 {
-        top: 6.875rem;
-        left: 15.4375rem;
-      }
-      @if $i == 2 {
-        top: 5.5rem;
-        left: 12.8125rem;  
-      }
+}
+@for $i from 0 to 3 {
+  .shape-wave-left-#{$i} {
+    @if $i == 0 {
+      top: 8.25rem;
+      left: 18.125rem;
+    }
+    @if $i == 1 {
+      top: 6.875rem;
+      left: 15.4375rem;
+    }
+    @if $i == 2 {
+      top: 5.5rem;
+      left: 12.8125rem;
     }
   }
-  
+}
 </style>

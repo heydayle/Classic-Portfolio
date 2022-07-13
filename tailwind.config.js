@@ -105,6 +105,22 @@ module.exports = {
             opacity: 1,
           },
         },
+        flip: {
+            'from': {
+              transform: 'rotateY(180deg)'
+            },
+            'to': {
+              transform: 'rotateY(0deg)'
+            }
+        },
+        flipOut: {
+            'from': {
+              transform: 'rotateY(0deg)'
+            },
+            'to': {
+              transform: 'rotateY(180deg)'
+            }
+        }
       },
       animation: {
         bounceIn: "bounceIn 500ms",
@@ -116,6 +132,8 @@ module.exports = {
         tiktok: "tiktok 1s",
         tiktokIn: "tiktokIn 1s",
         load: "load 1s",
+        flipIn: "flip 700ms",
+        flipOut: "flip 700ms"
       },
     },
     screens: {
