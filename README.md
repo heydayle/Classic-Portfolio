@@ -1,23 +1,3 @@
 # heyday
 
-Production: https://heydayle.github.io/Play_Mouse/#/
-
-## Project setup
-```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
+<a href="https://heydayle.github.io/Play_Mouse/#/" target="_blank">Production</a>
