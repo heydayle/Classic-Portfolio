@@ -57,30 +57,17 @@ module.exports = {
           "100%": { opacity: 1, transform: "translateY(0)" },
         },
         tiktok: {
-          "0%": {
-            transform: "scale(2)",
-            opacity: 1,
-            transform: "translateX(0)",
-          },
-          "25%": {
-            transform: "scale(1)",
+          "from": {
             opacity: 0,
-            transform: "translate(1rem, -1rem)",
+            transform: "scale(1) translate(10rem, -10rem)",
           },
           "50%": {
-            transform: "scale(1)",
+            opacity: 1,
+            transform: "scale(2) translate(-10rem, 10rem)",
+          },
+          "to": {
             opacity: 0,
-            transform: "translate(-1rem, 1rem)",
-          },
-          "51%": {
-            transform: "scale(1)",
-            opacity: 1,
-            transform: "translate(-1rem, 1rem)",
-          },
-          "100%": {
-            transform: "scale(1)",
-            opacity: 1,
-            transform: "translate(0)",
+            transform: "scale(1) translate(-50rem, 50rem)",
           },
         },
         tiktokIn: {
@@ -120,7 +107,46 @@ module.exports = {
             'to': {
               transform: 'rotateY(180deg)'
             }
-        }
+        },
+        fireFlyMove: {
+          "from": {
+            opacity: 1,
+            transform: "scale(1) rotate(180deg) translate(0)",
+          },
+          "25%": {
+            opacity: 1,
+            transform: "scale(1) rotate(185deg) translate(0, 19px)",
+          },
+          "50%": {
+            opacity: 1,
+            transform: "scale(1) rotate(180deg) translate(-1rem, 10px)",
+          },
+          "75%": {
+            opacity: 1,
+            transform: "scale(1) rotate(170deg) translate(1rem, 0)",
+          },
+          "to": {
+            opacity: 1,
+            transform: "scale(1) rotate(180deg) translate(0)",
+          },
+        },
+        waves: {
+          "from": {
+            opacity: 1,
+            right: 0,
+            transform: "scale(1)"
+          },
+          "50%": {
+            opacity: 1,
+            right: "600px",
+            transform: "scale(2)"
+          },
+          "to": {
+            opacity: 1,
+            right: "2000px",
+            transform: "scale(1)"
+          },
+        },
       },
       animation: {
         bounceIn: "bounceIn 500ms",
@@ -129,12 +155,14 @@ module.exports = {
         fadeInTop100: "fadeInTop100 1000ms",
         fadeOutTop100: "fadeOutTop100 300ms",
         fadeInbottom: "fadeInbottom 300ms",
-        tiktok: "tiktok 1s",
+        tiktok: "tiktok 7s infinite",
         tiktokIn: "tiktokIn 1s",
         load: "load 1s",
         flipIn: "flip 700ms",
-        flipOut: "flip 700ms"
-      },
+        flipOut: "flip 700ms",
+        fireFlyMove: "fireFlyMove 6s infinite",
+        waves: "waves 12s infinite"
+      }, 
     },
     screens: {
       xs: "376px",

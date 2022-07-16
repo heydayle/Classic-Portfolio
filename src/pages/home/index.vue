@@ -79,7 +79,8 @@
           <kinesis-container>
             <kinesis-element
               data-cursor-hover
-              class="tw-absolute tw-left-80 tw-bottom-20"
+              class="tw-absolute tw-bottom-20"
+              style="left: 30rem"
               :strength="0.2"
               type="scale"
             >
@@ -91,7 +92,8 @@
           <kinesis-container>
             <kinesis-element
               data-cursor-hover
-              class="tw-absolute tw-right-40 tw-bottom-10"
+              class="tw-absolute tw-bottom-10"
+              style="right: 28rem"
               :strength="1"
               type="scale"
             >
@@ -140,6 +142,68 @@
               <v-btn href="https://linkedin.com/in/thinh-le-profile/" icon>
                 <v-img src="../../assets/icon3d/linkedin.png" class="tw-w-10" />
               </v-btn>
+            </kinesis-element>
+          </kinesis-container>
+          <kinesis-container>
+            <kinesis-element
+              data-cursor-hover
+              v-if="mode"
+              class="tw-absolute"
+              style="bottom: 26rem;left: 26rem;"
+              :strength="0.2"
+              type="scale"
+            >
+              <v-btn href="https://linkedin.com/in/thinh-le-profile/" icon>
+                <v-img src="../../assets/icon3d/firefly.png" class="tw-w-4 tw-animate-fireFlyMove" />
+              </v-btn>
+            </kinesis-element>
+          </kinesis-container>
+          <kinesis-container>
+            <kinesis-element
+              data-cursor-hover
+              v-if="mode"
+              class="tw-absolute"
+              style="bottom: 26rem;right: 12rem"
+              :strength="0.4"
+              type="scale"
+            >
+              <v-img src="../../assets/icon3d/shooting-star.png" class="tw-w-14 tw-animate-tiktok" />
+            </kinesis-element>
+          </kinesis-container>
+          <kinesis-container>
+            <kinesis-element
+              data-cursor-hover
+              v-if="mode"
+              class="tw-absolute"
+              style="bottom: 10rem;left: 14rem"
+              :strength="0.2"
+              type="scale"
+            >
+              <v-img src="../../assets/icon3d/musical-note.png" class="tw-w-14 tw-animate-tiktokIn" />
+            </kinesis-element>
+          </kinesis-container>
+          <kinesis-container>
+            <kinesis-element
+              data-cursor-hover
+              v-if="mode"
+              class="tw-absolute"
+              style="bottom: 5rem;right: 8rem"
+              :strength="0.2"
+              type="scale"
+            >
+              <v-img src="../../assets/icon3d/mushroom.png" class="tw-w-14" />
+            </kinesis-element>
+          </kinesis-container>
+          <kinesis-container>
+            <kinesis-element
+              data-cursor-hover
+              v-if="!mode"
+              class="tw-absolute"
+              style="bottom: -8rem;right: 1rem"
+              :strength="0.2"
+              type="scale"
+            >
+              <v-img src="../../assets/icon3d/waves.png" class="tw-w-14 tw-animate-waves" />
             </kinesis-element>
           </kinesis-container>
         </div>
