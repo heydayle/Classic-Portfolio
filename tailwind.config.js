@@ -133,13 +133,8 @@ module.exports = {
         waves: {
           "from": {
             opacity: 1,
-            right: 0,
+            right: '-100px',
             transform: "scale(1)"
-          },
-          "50%": {
-            opacity: 1,
-            right: "600px",
-            transform: "scale(2)"
           },
           "to": {
             opacity: 1,
@@ -161,7 +156,8 @@ module.exports = {
         flipIn: "flip 700ms",
         flipOut: "flip 700ms",
         fireFlyMove: "fireFlyMove 6s infinite",
-        waves: "waves 12s infinite"
+        waves: "waves 8s infinite",
+        waves9: "waves 8020ms infinite"
       }, 
     },
     screens: {
