@@ -10,6 +10,8 @@
   "dependencies": {
     "@luxdamore/vue-cursor-fx": "^1.6.2",
     "@tailwindcss/postcss7-compat": "^2.2.17",
+    "@yzfe/svgicon": "^1.1.0",
+    "@yzfe/vue-svgicon": "^4.0.2",
     "autoprefixer": "^9",
     "core-js": "^3.6.5",
     "postcss": "^7",
@@ -23,6 +25,8 @@
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
+    "@yzfe/svgicon-loader": "^1.1.0",
+    "@yzfe/vue-cli-plugin-svgicon": "~1.1.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",

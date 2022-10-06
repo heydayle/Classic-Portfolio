@@ -1,5 +1,4 @@
 html {
-    overflow: hidden !important
 }
 .toBottom {
     bottom : -20px;
@@ -7,4 +6,26 @@ html {
 }
 .fromTop {
     top : -20px
+}
+//Scrollbar
+body::-webkit-scrollbar {
+    width: 0.3em;
+}
+
+body::-webkit-scrollbar-track {
+    box-shadow: none;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: black;
+    outline: none;
+}
+
+.c-filter {
+    filter: blur(60px) grayscale(100);
+    transition: ease-in-out 1s;
+
+    &:hover {
+        filter: none;
+    }
 }

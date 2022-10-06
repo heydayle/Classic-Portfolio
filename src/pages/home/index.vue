@@ -1,320 +1,230 @@
 <template>
-  <div class="tw-py-10" :class="mode ? 'tw-bg-black' : ''" style="height: 100vh">
-    <kinesis-container>
-      <kinesis-element :strength="2" type="depth">
-        <div class="tw-flex tw-items-center tw-justify-center">
-          <kinesis-container
-            class="tw-overflow-hidden tw-pt-6 tw-flex tw-items-center tw-justify-center tw-w-66"
-            style="height: 75vh"
+  <div class="tw-p-4 tw-text-white" :class="mode ? 'tw-bg-black' : ''">
+    <div class="tw-flex">
+      <div class="tw-flex-1 tw-pr-2">
+        <div
+          :class="mode ? 'tw-bg-black' : 'tw-bg-white'"
+          class="tw-flex tw-flex-1 tw-sticky tw-top-4 tw-justify-between tw-backdrop-blur-xl tw-items-center tw-z-10 tw-rounded-lg tw-p-2"
+        >
+          <div>
+            <h1 :class="modeStyle[mode].main" class="tw-text-2xl tw-font-bold">
+              Le Duong Hung Thinh
+            </h1>
+            <h2 :class="modeStyle[mode].main" class="tw-text-lg">
+              Junior Front-end Developer
+            </h2>
+          </div>
+          <div class="tw-space-x-2">
+            <v-btn
+              v-for="(item, index) in info.social"
+              :href="item.href"
+              :key="index"
+              icon
+            >
+              <v-icon :color="mode ? 'white' : 'black'">
+                {{ item.iconUrl }}
+              </v-icon>
+            </v-btn>
+          </div>
+        </div>
+        <hr class="tw-mt-2" />
+        <div class="tw-py-2">
+          <div :class="modeStyle[mode].main" class="tw-text-md tw-font-bold">
+            Summary
+          </div>
+          <v-list
+            dense
+            :dark="mode"
+            disabled
+            rounded
+            max-height="200"
+            outlined
+            class="tw-my-2"
           >
-            <kinesis-element class="tw-flex" :strength="10" type="depth">
-              <!-- <img class="tw-m-auto tw-text-center tw-w-60" src="../../assets/heyday.png"/> -->
-              <kinesis-element :strength="20" type="depth_inv">
-                <img
-                  data-cursor-hover
-                  class="shape-wave-left-0 tw-m-auto tw-text-center tw-w-26"
-                  src="../../assets/wave2.png"
-                />
-              </kinesis-element>
-              <kinesis-element :strength="20" type="depth_inv">
-                <img
-                  data-cursor-hover
-                  class="shape-wave-left-1 tw-m-auto tw-text-center tw-w-26"
-                  src="../../assets/wave2.png"
-                />
-              </kinesis-element>
-              <kinesis-element :strength="20" type="depth_inv">
-                <img
-                  data-cursor-hover
-                  class="shape-wave-left-2 tw-m-auto tw-text-center tw-w-26"
-                  src="../../assets/wave2.png"
-                />
-              </kinesis-element>
-              <kinesis-element :strength="-15" type="depth">
-                <img
-                  data-cursor-hover
-                  class="shape-h tw-m-auto tw-text-center tw-w-34"
-                  src="../../assets/h.png"
-                />
-              </kinesis-element>
-              <kinesis-element :strength="-15" type="depth_inv">
-                <img
-                  data-cursor-hover
-                  class="shape-y tw-m-auto tw-text-center tw-w-26"
-                  src="../../assets/y3.png"
-                />
-              </kinesis-element>
-              <kinesis-element :strength="20" type="depth">
-                <img
-                  data-cursor-hover
-                  class="shape-wave-right-0 tw-m-auto tw-text-center tw-w-26"
-                  src="../../assets/wave1.png"
-                />
-              </kinesis-element>
-              <kinesis-element :strength="20" type="depth">
-                <img
-                  data-cursor-hover
-                  class="shape-wave-right-1 tw-m-auto tw-text-center tw-w-26"
-                  src="../../assets/wave1.png"
-                />
-              </kinesis-element>
-              <kinesis-element :strength="20" type="depth">
-                <img
-                  data-cursor-hover
-                  class="shape-wave-right-2 tw-m-auto tw-text-center tw-w-26"
-                  src="../../assets/wave1.png"
-                />
-              </kinesis-element>
-            </kinesis-element>
-          </kinesis-container>
-          <!-- <kinesis-container>
-            <kinesis-element :strength="10" type="depth">
-              <a href="https://heydayle.github.io/Portfolio/">
-                Portfolio
-              </a>
-            </kinesis-element>
-          </kinesis-container> -->
+            <v-list-item-group active-class="pink--text" multiple>
+              <template v-for="(item, index) in info.summary">
+                <v-list-item :key="index">
+                  <template>
+                    <v-list-item-content>
+                      <div class="tw-flex tw-align-center tw-space-x-2">
+                        <v-icon color="yellow darken-3"> mdi-star </v-icon>
+                        <v-list-item-title v-text="item"></v-list-item-title>
+                      </div>
+                    </v-list-item-content>
+                  </template>
+                </v-list-item>
+              </template>
+            </v-list-item-group>
+          </v-list>
+          <div :class="modeStyle[mode].main" class="tw-text-md tw-font-bold">
+            Technical skill
+          </div>
+          <v-list
+            dense
+            :dark="mode"
+            disabled
+            rounded
+            max-height="400"
+            outlined
+            class="tw-my-2"
+          >
+            <v-list-item-group active-class="pink--text" multiple>
+              <template v-for="(item, index) in info.mainSkill">
+                <v-list-item :key="index">
+                  <template>
+                    <v-list-item-content>
+                      <div class="tw-flex tw-align-center tw-space-x-2">
+                        <v-icon
+                          v-if="index === 0 || index === 1"
+                          color="yellow darken-3"
+                        >
+                          mdi-star
+                        </v-icon>
+                        <v-icon v-else color="grey lighten-1">
+                          mdi-star-outline
+                        </v-icon>
+                        <v-list-item-title v-text="item"></v-list-item-title>
+                      </div>
+                    </v-list-item-content>
+                  </template>
+                </v-list-item>
+              </template>
+            </v-list-item-group>
+          </v-list>
         </div>
-        <div class="tw-relative">
-          <kinesis-container>
-            <kinesis-element
-              data-cursor-hover
-              class="tw-absolute tw-bottom-20"
-              style="left: 30rem"
-              :strength="0.2"
-              type="scale"
-            >
-              <v-btn href="https://fb.com/heydaysea" icon>
-                <v-img src="../../assets/icon3d/facebook.png" class="tw-w-12" />
-              </v-btn>
-            </kinesis-element>
-          </kinesis-container>
-          <kinesis-container>
-            <kinesis-element
-              data-cursor-hover
-              class="tw-absolute tw-bottom-10"
-              style="right: 28rem"
-              :strength="1"
-              type="scale"
-            >
-              <v-btn href="https://instagram.com/heyday.le" icon>
-                <v-img
-                  src="../../assets/icon3d/instagram.png"
-                  class="tw-w-12"
-                />
-              </v-btn>
-            </kinesis-element>
-          </kinesis-container>
-          <kinesis-container>
-            <kinesis-element
-              data-cursor-hover
-              class="tw-absolute tw-right-80 tw-bottom-80"
-              :strength="0.2"
-              type="scale"
-            >
-              <v-btn href="https://linkedin.com/in/thinh-le-profile/" icon>
-                <v-img src="../../assets/icon3d/linkedin.png" class="tw-w-10" />
-              </v-btn>
-            </kinesis-element>
-          </kinesis-container>
-          <kinesis-container>
-            <kinesis-element
-              data-cursor-hover
-              class="tw-absolute tw-left-20 tw-bottom-80"
-              :strength="0.2"
-              type="scale"
-            >
-              <v-btn v-if="mode" class="tw-animate-flipIn" @click="changeMode" icon>
-                <v-img class="tw-w-12" src="../../assets/icon3d/crescent.png" />
-              </v-btn>  
-              <v-btn v-else @click="changeMode" icon>
-                <v-img class="tw-animate-flipOut tw-w-12" src="../../assets/icon3d/cloud.png" />
-              </v-btn>  
-            </kinesis-element>
-          </kinesis-container>
-          <kinesis-container>
-            <kinesis-element
-              data-cursor-hover
-              class="tw-absolute tw-right-80 tw-bottom-80"
-              :strength="0.2"
-              type="scale"
-            >
-              <v-btn href="https://linkedin.com/in/thinh-le-profile/" icon>
-                <v-img src="../../assets/icon3d/linkedin.png" class="tw-w-10" />
-              </v-btn>
-            </kinesis-element>
-          </kinesis-container>
-          <kinesis-container>
-            <kinesis-element
-              data-cursor-hover
-              v-if="mode"
-              class="tw-absolute"
-              style="bottom: 26rem;left: 26rem;"
-              :strength="0.2"
-              type="scale"
-            >
-              <v-btn href="https://linkedin.com/in/thinh-le-profile/" icon>
-                <v-img src="../../assets/icon3d/firefly.png" class="tw-w-4 tw-animate-fireFlyMove" />
-              </v-btn>
-            </kinesis-element>
-          </kinesis-container>
-          <kinesis-container>
-            <kinesis-element
-              data-cursor-hover
-              v-if="mode"
-              class="tw-absolute"
-              style="bottom: 26rem;right: 12rem"
-              :strength="0.4"
-              type="scale"
-            >
-              <v-img src="../../assets/icon3d/shooting-star.png" class="tw-w-14 tw-animate-tiktok" />
-            </kinesis-element>
-          </kinesis-container>
-          <kinesis-container>
-            <kinesis-element
-              data-cursor-hover
-              v-if="mode"
-              class="tw-absolute"
-              style="bottom: 5rem;right: 8rem"
-              :strength="0.2"
-              type="scale"
-            >
-              <v-img src="../../assets/icon3d/mushroom.png" class="tw-w-14" />
-            </kinesis-element>
-          </kinesis-container>
-          <kinesis-container>
-            <kinesis-element
-              data-cursor-hover
-              v-if="!mode"
-              class="tw-absolute"
-              style="bottom: -8rem;right: 1rem"
-              :strength="0.2"
-              type="scale"
-            >
-              <v-img src="../../assets/icon3d/waves.png" class="tw-w-14 tw-animate-waves" />
-            </kinesis-element>
-          </kinesis-container>
-          <kinesis-container>
-            <kinesis-element
-              data-cursor-hover
-              v-if="!mode"
-              class="tw-absolute"
-              style="bottom: 26rem;left: 26rem;"
-              :strength="0.2"
-              type="scale"
-            >
-              <v-btn href="https://linkedin.com/in/thinh-le-profile/" icon>
-                <v-img src="../../assets/icon3d/bee.png" class="tw-w-4 tw-animate-fireFlyMove" />
-              </v-btn>
-            </kinesis-element>
-          </kinesis-container>
-          <kinesis-container>
-            <kinesis-element
-              data-cursor-hover
-              v-if="!mode"
-              class="tw-absolute"
-              style="bottom: 26rem;right: 12rem"
-              :strength="0.4"
-              type="scale"
-            >
-              <v-img src="../../assets/icon3d/shooting-star.png" class="tw-w-14 tw-animate-tiktok" />
-            </kinesis-element>
-          </kinesis-container>
-          <kinesis-container>
-            <kinesis-element
-              data-cursor-hover
-              v-if="!mode"
-              class="tw-absolute"
-              style="bottom: 5rem;right: 8rem"
-              :strength="0.2"
-              type="scale"
-            >
-              <v-img src="../../assets/icon3d/clover.png" class="tw-w-14 tw-animate-spin" />
-            </kinesis-element>
-          </kinesis-container>
-          <kinesis-container>
-            <kinesis-element
-              data-cursor-hover
-              v-if="!mode"
-              class="tw-absolute"
-              style="bottom: -8rem;right: 1rem"
-              :strength="0.2"
-              type="scale"
-            >
-              <v-img src="../../assets/icon3d/waves.png" class="tw-w-14 tw-animate-waves" />
-            </kinesis-element>
-          </kinesis-container>
-          <kinesis-container>
-            <kinesis-element
-              data-cursor-hover
-              v-if="!mode"
-              class="tw-absolute"
-              style="bottom: -8rem;right: 1rem"
-              :strength="0.2"
-              type="scale"
-            >
-              <v-img src="../../assets/icon3d/waves.png" class="tw-w-14 tw-animate-waves9" />
-            </kinesis-element>
-          </kinesis-container>
-        </div>
+      </div>
+      <div class="">
         <kinesis-container>
-          <kinesis-element data-cursor-hover :strength="10" type="depth">
-            <div>
-              <kinesis-container
-                class="tw-flex tw-justify-center tw-items-end tw-pb-4 tw-space-x-2"
-                href="https://github.com/heydayle"
-                tag="a"
-              >
-                <kinesis-element :strength="10" type="depth">
-                  <img
-                    class="tw-m-auto tw-text-center tw-w-6"
-                    src="../../assets/h-char.png"
-                  />
-                </kinesis-element>
-                <kinesis-element :strength="7" type="depth_inv">
-                  <img
-                    class="tw-m-auto tw-text-center tw-w-6"
-                    src="../../assets/e-char.png"
-                  />
-                </kinesis-element>
-                <kinesis-element :strength="6" type="depth">
-                  <img
-                    class="tw-m-auto tw-text-center tw-w-6 tw-relative tw-top-2"
-                    src="../../assets/y-char.png"
-                  />
-                </kinesis-element>
-                <kinesis-element :strength="9" type="depth">
-                  <img
-                    class="tw-m-auto tw-text-center tw-w-6"
-                    src="../../assets/d-char.png"
-                  />
-                </kinesis-element>
-                <kinesis-element :strength="15" type="depth_inv">
-                  <img
-                    class="tw-m-auto tw-text-center tw-w-8"
-                    src="../../assets/a-char.png"
-                  />
-                </kinesis-element>
-                <kinesis-element :strength="9" type="depth">
-                  <img
-                    class="tw-m-auto tw-text-center tw-w-6 tw-relative tw-top-2"
-                    src="../../assets/y-char.png"
-                  />
-                </kinesis-element>
-              </kinesis-container>
-            </div>
+          <kinesis-element :strength="4" type="depth">
+            <v-img
+              src="../../assets/heydayBlue.jpg"
+              width="400"
+              class="tw-rounded-b-xl tw-rounded-t-xl c-filter"
+            />
           </kinesis-element>
         </kinesis-container>
-      </kinesis-element>
-    </kinesis-container>
-    <p
-      class="tw-absolute tw-bottom-4 tw-text-xs tw-ml-4"
-      :class="mode ? 'tw-text-white' : 'tw-text-black'"
-      small
-      href='https://github.com/heydayle'
+      </div>
+    </div>
+    <div
+      :class="modeStyle[mode].main"
+      class="tw-text-md tw-text-center tw-pl-4 tw-font-bold"
     >
-    Heyday Lê since 2022
-    </p>
+      Working Experienced
+    </div>
+    <div class="tw-p-4">
+      <v-timeline
+        class="tw-w-full"
+        align-top
+        :dark="mode"
+        :class="mode ? 'tw-bg-black' : ''"
+      >
+        <v-timeline-item
+          v-for="(item, i) in info.time"
+          :key="i"
+          :color="mode ? 'white' : 'black'"
+          small
+        >
+          <template v-slot:opposite>
+            <span
+              :class="modeStyle[mode].main"
+              class="font-weight-bold tw-border tw-border-0.5 tw-rounded-lg tw-p-4 tw-whitespace-pre-line tw-text-center"
+              v-text="item.year"
+            ></span>
+          </template>
+          <div class="tw-space-y-3">
+            <h2
+              :class="modeStyle[mode].main"
+              class="headline font-weight-light"
+            >
+              {{ item.company }}
+            </h2>
+            <div class="tw-space-y-1">
+              <div :class="modeStyle[mode].main">
+                Position: <b>{{ item.position }}</b>
+              </div>
+              <div :class="modeStyle[mode].main">
+                Project: <b>{{ item.project }}</b>
+              </div>
+              <div :class="modeStyle[mode].main">Technique:</div>
+              <div :class="modeStyle[mode].main">
+                <v-list
+                  dense
+                  :dark="mode"
+                  disabled
+                  rounded
+                  max-height="400"
+                  outlined
+                  class=""
+                >
+                  <v-list-item-group active-class="pink--text" multiple>
+                    <template v-for="(item, index) in item.technique">
+                      <v-list-item :key="index">
+                        <template>
+                          <v-list-item-content>
+                            <div class="tw-flex tw-align-center tw-space-x-2">
+                              <v-icon color="yellow darken-3">
+                                mdi-star
+                              </v-icon>
+                              <v-list-item-title
+                                v-text="item"
+                              ></v-list-item-title>
+                            </div>
+                          </v-list-item-content>
+                        </template>
+                      </v-list-item>
+                    </template>
+                  </v-list-item-group>
+                </v-list>
+              </div>
+            </div>
+          </div>
+        </v-timeline-item>
+      </v-timeline>
+    </div>
+    <div
+      class="tw-fixed tw-flex tw-justify-between tw-w-full tw-bottom-0 tw-text-xs tw-py-2 tw-px-6"
+    >
+      <p
+        :class="mode ? 'tw-text-white' : 'tw-text-black'"
+        small
+        href="https://github.com/heydayle"
+      >
+        Heyday Lê since 2022
+      </p>
+      <v-btn icon class="tw-ml-auto" @click="changeMode">
+        <template v-if="mode">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 512 512"
+            class="tw-animate-fadeInTop100"
+          >
+            <path
+              fill="white"
+              d="M152.62 126.77c0-33 4.85-66.35 17.23-94.77C87.54 67.83 32 151.89 32 247.38C32 375.85 136.15 480 264.62 480c95.49 0 179.55-55.54 215.38-137.85c-28.42 12.38-61.8 17.23-94.77 17.23c-128.47 0-232.61-104.14-232.61-232.61Z"
+            />
+          </svg>
+        </template>
+        <template v-else>
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            class="tw-animate-tiktokIn"
+          >
+            <path
+              fill="black"
+              d="M11 5V1h2v4Zm6.65 2.75l-1.375-1.375l2.8-2.875l1.4 1.425ZM19 13v-2h4v2Zm-8 10v-4h2v4ZM6.35 7.7L3.5 4.925l1.425-1.4L7.75 6.35Zm12.7 12.8l-2.775-2.875l1.35-1.35l2.85 2.75ZM1 13v-2h4v2Zm3.925 7.5l-1.4-1.425l2.8-2.8l.725.675l.725.7ZM12 18q-2.5 0-4.25-1.75T6 12q0-2.5 1.75-4.25T12 6q2.5 0 4.25 1.75T18 12q0 2.5-1.75 4.25T12 18Z"
+            />
+          </svg>
+        </template>
+      </v-btn>
+    </div>
+    <div class="tw-flex tw-space-x-2">
+      <v-btn rounded :dark="mode"> Hour chart </v-btn>
+      <v-btn rounded :dark="mode"> Language Chart </v-btn>
+      <v-btn rounded :dark="mode"> Chart </v-btn>
+    </div>
     <cursor-fx
       :config="cursorConfig"
       color="#118ab2"
@@ -350,8 +260,131 @@ export default {
         opacity: 0.8,
       },
       mode: true,
-      dark: 'cloud.png',
-      light: 'crescent.png'
+      modeStyle: {
+        true: {
+          main: "tw-text-white",
+          second: "tw-text-gray-400",
+        },
+        false: {
+          main: "tw-text-black",
+          second: "tw-text-gray-700",
+        },
+      },
+      info: {
+        summary: [
+          "Experienced Frontend Developer with a demonstrated history of working in the information technology and services industry.",
+          "2 Years experienced building single page web application with web framework.",
+        ],
+        social: [
+          {
+            href: "https://facebook.com/heydaysea",
+            iconUrl: "mdi-facebook",
+          },
+          {
+            href: "https://instagram.com/heyday.le",
+            iconUrl: "mdi-instagram",
+          },
+          {
+            href: "https://linkedin.com/in/thinh-le-profile",
+            iconUrl: "mdi-linkedin",
+          },
+        ],
+        mainSkill: [
+          "2 Years with Vuejs, VueX, 6 months with Vue StoreFront - Magento",
+          "2 Years with Bootstrap, 1+ years with Tailwind + SCSS",
+          "1 Years with React Native, Reactjs",
+          "Strong HTML, CSS, JavaScripts",
+          "Good Photoshop, Illustrator, Git, Figma",
+        ],
+        time: [
+          {
+            color: "red lighten-2",
+            icon: "mdi-star",
+            company: "YOONG TECHNOLOGIES",
+            year: "2021/11 - Present",
+            position: "Front-end Developer ( VueJS, VueX )",
+            project:
+              "Dragon Capital (CMS, DragonX, DragonS, Pension), HKT Group",
+            description: [],
+            technique: ["Vuejs, VueX."],
+            adv: [
+              "Learn how to solve problems between client and dev",
+              "Learn how to solve problems quickly and clearly",
+              "Learn more about Vue StoreFront and Magento 2.",
+              "Learn to schedule time to deal with problems.",
+              "Learn how to manage your time effectively.",
+              "Learn to evaluate an incident.",
+            ],
+          },
+          {
+            color: "purple darken-1",
+            icon: "mdi-book-variant",
+            company: "WIKI SOLUTION",
+            year: "2021/02 - 2021/08",
+            position: "Front-end Developer ( VueJS, Vue StoreFront )",
+            project: "Bioderma Thailand, Medical Marketplace",
+            description: [
+              "Build website interfaces of projects according to the assigned templates.",
+              "Build a RESTful API that gets data from Magento 2",
+              "Update website functionality according to clients request.",
+              "Exchange information and help clients on website related issues.",
+              "Build SEO for website (GA, GTM, Facebook Pixel)",
+              "Team work to solve problems.",
+            ],
+            technique: ["Vuejs, Vue StoreFront.", "Magento 2."],
+            adv: [
+              "Learn how to solve problems between client and dev",
+              "Learn how to solve problems quickly and clearly",
+              "Learn more about Vue StoreFront and Magento 2.",
+              "Learn to schedule time to deal with problems.",
+              "Learn how to manage your time effectively.",
+              "Learn to evaluate an incident.",
+            ],
+          },
+          {
+            color: "green lighten-1",
+            icon: "mdi-airballoon",
+            company: "GUGOTECH",
+            year: "2020/10 - 2021/02",
+            position: "FullStack ( Nodejs, React Native )",
+            project: "RealTech - Tim nha chinh chu",
+            description: [
+              "Support and design the website according to the design and the documents assigned.",
+              "Optimize code and flow Front-end and Back end.",
+              "Team work.",
+            ],
+            technique: ["React Native, Reactjs.", "Nodejs, Graphql."],
+            adv: [
+              "Learn and proficient in Graphql.",
+              "Learn how to solve problems quickly and clearly.",
+              "Learn how to organize and solve problems.",
+            ],
+          },
+          {
+            color: "indigo",
+            icon: "mdi-buffer",
+            company: "VIVAS EDUCATION",
+            year: "2020/02 - 2020/05",
+            position: "Web Designer",
+            project: "Vivas Education Website",
+            description: [
+              "Design website and corporate home page articles.",
+              "Use the Wordpress CMS to build.",
+              "Edit and optimize images for website.",
+              "Optimize website loading speed.",
+              "Multi-language for website",
+            ],
+            technique: [
+              "Using and modifying Wordpress plugins.",
+              "Create a multilingual website.",
+            ],
+            adv: [
+              "Learn how a multilingual website works.",
+              "Learn the layout of elements on a web page.",
+            ],
+          },
+        ],
+      },
     };
   },
   computed: {},
@@ -359,57 +392,9 @@ export default {
   mounted() {},
   methods: {
     changeMode() {
-      this.mode = !this.mode
-    }
+      this.mode = !this.mode;
+    },
   },
 };
 </script>
 <style src="@luxdamore/vue-cursor-fx/dist/CursorFx.css"></style>
-<style lang="scss">
-a {
-  cursor: normal !important;
-}
-img {
-  position: relative;
-}
-.shape-h {
-  bottom: 5.625rem;
-  left: 9.6875rem;
-}
-.shape-y {
-  top: 6.5625rem;
-  right: 7.8125rem;
-}
-@for $i from 0 to 3 {
-  .shape-wave-right-#{$i} {
-    @if $i == 0 {
-      top: 5.4375rem;
-      right: 7.1875rem;
-    }
-    @if $i == 1 {
-      top: 6.875rem;
-      right: 12.75rem;
-    }
-    @if $i == 2 {
-      top: 8.3125rem;
-      right: 18.375rem;
-    }
-  }
-}
-@for $i from 0 to 3 {
-  .shape-wave-left-#{$i} {
-    @if $i == 0 {
-      top: 8.25rem;
-      left: 18.125rem;
-    }
-    @if $i == 1 {
-      top: 6.875rem;
-      left: 15.4375rem;
-    }
-    @if $i == 2 {
-      top: 5.5rem;
-      left: 12.8125rem;
-    }
-  }
-}
-</style>
