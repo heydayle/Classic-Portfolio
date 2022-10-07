@@ -19,6 +19,7 @@
               v-for="(item, index) in info.social"
               :href="item.href"
               :key="index"
+              target="_blank"
               icon
             >
               <v-icon :color="mode ? 'white' : 'black'">
@@ -93,7 +94,7 @@
           </v-list>
         </div>
       </div>
-      <div class="">
+      <div class="tw-p-4 tw-pr-0">
         <kinesis-container>
           <kinesis-element :strength="4" type="depth">
             <v-img
@@ -220,11 +221,54 @@
         </template>
       </v-btn>
     </div>
-    <div class="tw-flex tw-space-x-2">
-      <v-btn rounded :dark="mode"> Hour chart </v-btn>
-      <v-btn rounded :dark="mode"> Language Chart </v-btn>
-      <v-btn rounded :dark="mode"> Chart </v-btn>
+    <div class="tw-flex tw-space-x-2 tw-justify-center">
+      <v-btn rounded :dark="mode" @click="showHourChart = true">Chart</v-btn>
+      <v-btn rounded :dark="mode" @click="showContact = true">Contact</v-btn>
     </div>
+    <!--Contact-->
+    <v-bottom-sheet v-model="showContact">
+      <v-sheet
+          class="text-center"
+          height="200px"
+      >
+        <v-btn
+            class="mt-6"
+            text
+            color="red"
+            icon
+            @click="showContact = !showContact"
+        >
+          <v-icon>
+            mdi-close
+          </v-icon>
+        </v-btn>
+        <div v-for="(item, index) in info.contact" class="py-1 tw-font-bold tw-uppercase" :key="index">
+          {{item}}
+        </div>
+        <div class="tw-space-x-2">
+          <v-btn
+              v-for="(item, index) in info.social"
+              :href="item.href"
+              :key="index"
+              target="_blank"
+              icon
+          >
+            <v-icon color="black">
+              {{ item.iconUrl }}
+            </v-icon>
+          </v-btn>
+        </div>
+      </v-sheet>
+    </v-bottom-sheet>
+    <v-dialog v-model="showHourChart">
+      <v-card :dark="mode" class="tw-p-4">
+        <v-card-text class="tw-p-4 tw-m-auto">
+          <div class="tw-flex tw-m-auto tw-space-x-4">
+            <div v-if="info.chartHtml" v-html="info.chartHtml"/>
+          </div>
+        </v-card-text>
+      </v-card>
+    </v-dialog>
     <cursor-fx
       :config="cursorConfig"
       color="#118ab2"
@@ -271,9 +315,10 @@ export default {
         },
       },
       info: {
+        avatarUrl: 'heydayBlue.jpg',
         summary: [
           "Experienced Frontend Developer with a demonstrated history of working in the information technology and services industry.",
-          "2 Years experienced building single page web application with web framework.",
+          "2 Years experienced building single page web application with framework Vue, React.",
         ],
         social: [
           {
@@ -287,6 +332,10 @@ export default {
           {
             href: "https://linkedin.com/in/thinh-le-profile",
             iconUrl: "mdi-linkedin",
+          },
+          {
+            href: "https://join.skype.com/invite/V0Xz7wIrwhgU",
+            iconUrl: "mdi-skype",
           },
         ],
         mainSkill: [
@@ -384,7 +433,16 @@ export default {
             ],
           },
         ],
+        contact: [
+            'Hungthinh.ckc@gmail.com'
+        ],
+        chartHtml:`<div class="tw-flex tw-w-full tw-m-auto tw-space-x-4">
+                <embed class="tw-flex-1" src="https://wakatime.com/share/@heyday/04bf947f-7f71-4167-adde-6dd60fd7e7a7.svg"/>
+                <embed class="tw-w-1/2" src="https://wakatime.com/share/@heyday/45192c66-f078-437c-825b-9df0906f176c.svg"/>
+            </div>`
       },
+      showHourChart: false,
+      showContact: false,
     };
   },
   computed: {},

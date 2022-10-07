@@ -22,7 +22,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .c-filter {
-    filter: blur(60px) grayscale(100);
+    filter: grayscale(100);
     transition: ease-in-out 1s;
 
     &:hover {
