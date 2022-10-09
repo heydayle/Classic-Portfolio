@@ -8,10 +8,10 @@
         >
           <div>
             <h1 :class="modeStyle[mode].main" class="tw-text-2xl tw-font-bold">
-              Le Duong Hung Thinh
+              {{ info.name }}
             </h1>
-            <h2 :class="modeStyle[mode].main" class="tw-text-lg">
-              Junior Front-end Developer
+            <h2 :class="modeStyle[mode].main" class="tw-text-lg tw-text-center md:tw-text-left">
+              {{ info.position }}
             </h2>
           </div>
           <div class="tw-space-x-2">
@@ -316,6 +316,8 @@ export default {
         },
       },
       info: {
+        name: 'Le Duong Hung Thinh',
+        position: 'Junior Front-end Developer',
         avatarUrl: 'heydayBlue.jpg',
         summary: [
           "Experienced Frontend Developer with a demonstrated history of working in the information technology and services industry.",
