@@ -47,9 +47,9 @@
                 <v-list-item :key="index">
                   <template>
                     <v-list-item-content>
-                      <div class="tw-flex tw-align-center tw-space-x-2">
+                      <div class="tw-flex tw-items-start tw-align-center tw-space-x-2">
                         <v-icon color="yellow darken-3"> mdi-star </v-icon>
-                        <v-list-item-title v-text="item"></v-list-item-title>
+                        <v-list-item-title style="white-space: pre-line !important;" v-text="item"></v-list-item-title>
                       </div>
                     </v-list-item-content>
                   </template>
@@ -74,7 +74,7 @@
                 <v-list-item :key="index">
                   <template>
                     <v-list-item-content>
-                      <div class="tw-flex tw-align-center tw-space-x-2">
+                      <div class="tw-flex tw-items-start tw-align-center tw-space-x-2">
                         <v-icon
                           v-if="index === 0 || index === 1"
                           color="yellow darken-3"
@@ -84,7 +84,7 @@
                         <v-icon v-else color="grey lighten-1">
                           mdi-star-outline
                         </v-icon>
-                        <v-list-item-title v-text="item"></v-list-item-title>
+                        <v-list-item-title style="white-space: pre-line !important;" v-text="item"></v-list-item-title>
                       </div>
                     </v-list-item-content>
                   </template>
@@ -125,6 +125,8 @@
           :key="i"
           :color="mode ? 'white' : 'black'"
           small
+          :large="i===0"
+          class="tw-mb-4"
         >
           <template v-slot:opposite>
             <span
@@ -134,52 +136,59 @@
             ></span>
           </template>
           <div class="tw-space-y-3">
-            <h2
-              :class="modeStyle[mode].main"
-              class="headline font-weight-light"
-            >
-              {{ item.company }}
-            </h2>
-            <div class="tw-space-y-1">
-              <div :class="modeStyle[mode].main">
-                Position: <b>{{ item.position }}</b>
+              <h2
+                  :class="modeStyle[mode].main"
+                  class="headline font-weight-light"
+              >
+                {{ item.company }}
+              </h2>
+            <span
+                v-if="windowWidth < 769"
+                :class="modeStyle[mode].second"
+                class="font-weight-bold tw-py-0.5 tw-whitespace-pre-line tw-text-center"
+                v-text="item.year"
+            />
+              <div class="tw-space-y-1">
+                <div :class="modeStyle[mode].main">
+                  Position: <b>{{ item.position }}</b>
+                </div>
+                <div :class="modeStyle[mode].main">
+                  Project: <b>{{ item.project }}</b>
+                </div>
+                <div :class="modeStyle[mode].main">Technique:</div>
+                <div :class="modeStyle[mode].main">
+                  <v-list
+                      dense
+                      :dark="mode"
+                      disabled
+                      rounded
+                      max-height="400"
+                      outlined
+                      class=""
+                  >
+                    <v-list-item-group active-class="pink--text" multiple>
+                      <template v-for="(item, index) in item.technique">
+                        <v-list-item :key="index">
+                          <template>
+                            <v-list-item-content>
+                              <div class="tw-flex tw-align-center tw-space-x-2">
+                                <v-icon color="yellow darken-3">
+                                  mdi-star
+                                </v-icon>
+                                <v-list-item-title
+                                    style="white-space: pre-line !important;"
+                                    v-text="item"
+                                ></v-list-item-title>
+                              </div>
+                            </v-list-item-content>
+                          </template>
+                        </v-list-item>
+                      </template>
+                    </v-list-item-group>
+                  </v-list>
+                </div>
               </div>
-              <div :class="modeStyle[mode].main">
-                Project: <b>{{ item.project }}</b>
-              </div>
-              <div :class="modeStyle[mode].main">Technique:</div>
-              <div :class="modeStyle[mode].main">
-                <v-list
-                  dense
-                  :dark="mode"
-                  disabled
-                  rounded
-                  max-height="400"
-                  outlined
-                  class=""
-                >
-                  <v-list-item-group active-class="pink--text" multiple>
-                    <template v-for="(item, index) in item.technique">
-                      <v-list-item :key="index">
-                        <template>
-                          <v-list-item-content>
-                            <div class="tw-flex tw-align-center tw-space-x-2">
-                              <v-icon color="yellow darken-3">
-                                mdi-star
-                              </v-icon>
-                              <v-list-item-title
-                                v-text="item"
-                              ></v-list-item-title>
-                            </div>
-                          </v-list-item-content>
-                        </template>
-                      </v-list-item>
-                    </template>
-                  </v-list-item-group>
-                </v-list>
-              </div>
-            </div>
-          </div>
+      </div>
         </v-timeline-item>
       </v-timeline>
     </div>
@@ -358,7 +367,7 @@ export default {
             icon: "mdi-star",
             company: "YOONG TECHNOLOGIES",
             year: "2021/11 - Present",
-            position: "Front-end Developer ( VueJS, VueX )",
+            position: "Front-end Developer (VueJS, VueX)",
             project:
               "Dragon Capital (CMS, DragonX, DragonS, Pension), HKT Group",
             description: [],
@@ -377,7 +386,7 @@ export default {
             icon: "mdi-book-variant",
             company: "WIKI SOLUTION",
             year: "2021/02 - 2021/08",
-            position: "Front-end Developer ( VueJS, Vue StoreFront )",
+            position: "Front-end Developer (VueJS, Vue StoreFront, Magento2)",
             project: "Bioderma Thailand, Medical Marketplace",
             description: [
               "Build website interfaces of projects according to the assigned templates.",
@@ -402,7 +411,7 @@ export default {
             icon: "mdi-airballoon",
             company: "GUGOTECH",
             year: "2020/10 - 2021/02",
-            position: "FullStack ( Nodejs, React Native )",
+            position: "FullStack (Nodejs, React Native)",
             project: "RealTech - Tim nha chinh chu",
             description: [
               "Support and design the website according to the design and the documents assigned.",
