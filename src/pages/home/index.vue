@@ -1,10 +1,10 @@
 <template>
   <div class="tw-p-4 tw-text-white" :class="mode ? 'tw-bg-black' : ''">
-    <div class="tw-flex">
+    <div class="tw-flex tw-flex-col tw-flex-col-reverse md:tw-flex-row">
       <div class="tw-flex-1 tw-pr-2">
         <div
           :class="mode ? 'tw-bg-black' : 'tw-bg-white'"
-          class="tw-flex tw-flex-1 tw-sticky tw-top-4 tw-justify-between tw-backdrop-blur-xl tw-items-center tw-z-10 tw-rounded-lg tw-p-2"
+          class="tw-flex tw-flex-1 tw-flex-col md:tw-flex-row tw-sticky tw-top-4 tw-justify-between tw-backdrop-blur-xl tw-items-center tw-z-10 tw-rounded-lg tw-p-2"
         >
           <div>
             <h1 :class="modeStyle[mode].main" class="tw-text-2xl tw-font-bold">
@@ -67,7 +67,7 @@
             rounded
             max-height="400"
             outlined
-            class="tw-my-2"
+            class="tw-my-2 tw-w-full"
           >
             <v-list-item-group active-class="pink--text" multiple>
               <template v-for="(item, index) in info.mainSkill">
@@ -94,12 +94,12 @@
           </v-list>
         </div>
       </div>
-      <div class="tw-p-4 tw-pr-0">
+      <div class="tw-p-2">
         <kinesis-container>
           <kinesis-element :strength="4" type="depth">
             <v-img
-              src="../../assets/heydayBlue.jpg"
-              width="400"
+              src="../../assets/heyday-cool.png"
+              width="365"
               class="tw-rounded-b-xl tw-rounded-t-xl c-filter"
             />
           </kinesis-element>
@@ -112,10 +112,11 @@
     >
       Working Experienced
     </div>
-    <div class="tw-p-4">
+    <div class="tw-pr-2 md:tw-p-4">
       <v-timeline
         class="tw-w-full"
         align-top
+        :dense="windowWidth <= 768"
         :dark="mode"
         :class="mode ? 'tw-bg-black' : ''"
       >
@@ -337,6 +338,10 @@ export default {
             href: "https://join.skype.com/invite/V0Xz7wIrwhgU",
             iconUrl: "mdi-skype",
           },
+          {
+            href: "https://github.com/heydayle",
+            iconUrl: "mdi-github",
+          },
         ],
         mainSkill: [
           "2 Years with Vuejs, VueX, 6 months with Vue StoreFront - Magento",
@@ -443,11 +448,14 @@ export default {
       },
       showHourChart: false,
       showContact: false,
+      windowWidth: null
     };
   },
   computed: {},
   created() {},
-  mounted() {},
+  mounted() {
+    this.windowWidth = window.innerWidth
+  },
   methods: {
     changeMode() {
       this.mode = !this.mode;

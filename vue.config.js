@@ -19,7 +19,7 @@ module.exports = {
         .plugin('html')
         .tap(args => {
           args[0].title = 'Heyday Le';
-          args[0].meta = {viewport: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"'}
+          args[0].meta = {viewport: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'}
           return args;
         })
   config.module
