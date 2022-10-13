@@ -5,10 +5,17 @@
     </v-main>
   </v-app>
 </template>
-
 <script>
 
 export default {
+  created() {
+    this.track()
+  },
+  methods: {
+    track () {
+      this.$ga.page('/')
+    }
+  }
 };
 </script>
 <style lang="scss" scope>

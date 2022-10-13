@@ -4,7 +4,6 @@ import "./assets/tailwind.css";
 import vuetify from "./plugins/vuetify";
 
 
-
 /*
  * vue-svgicon
  * Refs: https://mmf-fe.github.io/svgicon/en/guide/#installation
@@ -17,6 +16,9 @@ Vue.component('icon', VueSvgIcon)
 import router from "./router";
 
 Vue.config.productionTip = false;
+
+import VueAnalytics from 'vue-analytics'
+Vue.use(VueAnalytics, {id: 'UA-203301687-1'})
 
 new Vue({
   vuetify,

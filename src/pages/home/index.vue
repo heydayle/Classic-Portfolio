@@ -466,10 +466,12 @@ export default {
   created() {},
   mounted() {
     this.windowWidth = window.innerWidth
+    this.$ga.page('/')
   },
   methods: {
     changeMode() {
       this.mode = !this.mode;
+      this.$ga.page('/')
     },
   },
 };
