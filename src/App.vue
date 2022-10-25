@@ -8,7 +8,7 @@
             class="tw-fixed tw-flex tw-justify-between tw-w-full tw-bottom-0 tw-text-xs tw-py-2 tw-px-6"
         >
           <v-btn icon class="tw-ml-auto" @click="changeMode">
-            <template v-if="!mode">
+            <template v-if="mode">
               <svg
                   width="16"
                   height="16"
@@ -45,6 +45,7 @@
 export default {
   created() {
     this.track()
+    this.$vuetify.theme.dark = this.$store?.state?.common?.mode
   },
   computed: {
     mode() {
@@ -57,7 +58,7 @@ export default {
     },
     changeMode() {
       this.$store.dispatch(`common/CHANGE_MODE`, this.mode)
-      this.$vuetify.theme.dark = !this.mode
+      this.$vuetify.theme.dark = this.mode
     }
   }
 };
