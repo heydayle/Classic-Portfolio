@@ -108,11 +108,11 @@
       <div class="tw-p-2">
         <kinesis-container>
           <kinesis-element :strength="4" type="depth">
-<!--            <v-img-->
-<!--                src="../../assets/heyday-cool1.png"-->
-<!--                width="365"-->
-<!--                class="tw-rounded-b-xl tw-rounded-t-xl c-filter"-->
-<!--            />-->
+            <v-img
+                src="../../assets/heyday-cool.png"
+                width="365"
+                class="tw-rounded-b-xl tw-rounded-t-xl c-filter"
+            />
           </kinesis-element>
         </kinesis-container>
       </div>
