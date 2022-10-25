@@ -1,29 +1,29 @@
 <template>
-  <div class="tw-p-4 tw-text-white" :class="mode ? 'tw-bg-black' : ''">
+  <div>
+    <!--region @Summary-->
     <div class="tw-flex tw-flex-col tw-flex-col-reverse md:tw-flex-row">
       <div class="tw-flex-1 tw-pr-2">
         <div
-          :class="mode ? 'tw-bg-black' : 'tw-bg-white'"
-          class="tw-flex tw-flex-1 tw-flex-col md:tw-flex-row tw-sticky tw-top-4 tw-justify-between tw-backdrop-blur-xl tw-items-center tw-z-10 tw-rounded-lg tw-p-2"
+            class="tw-flex tw-flex-1 tw-flex-col md:tw-flex-row tw-sticky tw-top-4 tw-justify-between tw-backdrop-blur-xl tw-items-center tw-z-10 tw-rounded-lg tw-p-2"
         >
           <div>
             <h1 :class="modeStyle[mode].main" class="tw-text-2xl tw-font-bold">
               {{ info.name }}
             </h1>
             <h2
-              :class="modeStyle[mode].main"
-              class="tw-text-lg tw-text-center md:tw-text-left"
+                :class="modeStyle[mode].main"
+                class="tw-text-lg tw-text-center md:tw-text-left"
             >
               {{ info.position }}
             </h2>
           </div>
           <div class="tw-space-x-2">
             <v-btn
-              v-for="(item, index) in info.social"
-              :href="item.href"
-              :key="index"
-              target="_blank"
-              icon
+                v-for="(item, index) in info.social"
+                :href="item.href"
+                :key="index"
+                target="_blank"
+                icon
             >
               <v-icon :color="mode ? 'white' : 'black'">
                 {{ item.iconUrl }}
@@ -37,13 +37,12 @@
             Summary
           </div>
           <v-list
-            dense
-            :dark="mode"
-            disabled
-            rounded
-            max-height="200"
-            outlined
-            class="tw-my-2"
+              dense
+              disabled
+              rounded
+              max-height="200"
+              outlined
+              class="tw-my-2"
           >
             <v-list-item-group active-class="pink--text" multiple>
               <template v-for="(item, index) in info.summary">
@@ -51,12 +50,12 @@
                   <template>
                     <v-list-item-content>
                       <div
-                        class="tw-flex tw-items-start tw-align-center tw-space-x-2"
+                          class="tw-flex tw-items-start tw-align-center tw-space-x-2"
                       >
                         <v-icon color="yellow darken-3"> mdi-star </v-icon>
                         <v-list-item-title
-                          style="white-space: pre-line !important"
-                          v-text="item"
+                            style="white-space: pre-line !important"
+                            v-text="item"
                         ></v-list-item-title>
                       </div>
                     </v-list-item-content>
@@ -69,13 +68,12 @@
             Technical skill
           </div>
           <v-list
-            dense
-            :dark="mode"
-            disabled
-            rounded
-            max-height="400"
-            outlined
-            class="tw-my-2 tw-w-full"
+              dense
+              disabled
+              rounded
+              max-height="400"
+              outlined
+              class="tw-my-2 tw-w-full"
           >
             <v-list-item-group active-class="pink--text" multiple>
               <template v-for="(item, index) in info.mainSkill">
@@ -83,11 +81,11 @@
                   <template>
                     <v-list-item-content>
                       <div
-                        class="tw-flex tw-items-start tw-align-center tw-space-x-2"
+                          class="tw-flex tw-items-start tw-align-center tw-space-x-2"
                       >
                         <v-icon
-                          v-if="index === 0 || index === 1"
-                          color="yellow darken-3"
+                            v-if="index === 0 || index === 1"
+                            color="yellow darken-3"
                         >
                           mdi-star
                         </v-icon>
@@ -95,8 +93,8 @@
                           mdi-star-outline
                         </v-icon>
                         <v-list-item-title
-                          style="white-space: pre-line !important"
-                          v-text="item"
+                            style="white-space: pre-line !important"
+                            v-text="item"
                         ></v-list-item-title>
                       </div>
                     </v-list-item-content>
@@ -110,15 +108,16 @@
       <div class="tw-p-2">
         <kinesis-container>
           <kinesis-element :strength="4" type="depth">
-            <v-img
-              src="../../assets/heyday-cool.png"
-              width="365"
-              class="tw-rounded-b-xl tw-rounded-t-xl c-filter"
-            />
+<!--            <v-img-->
+<!--                src="../../assets/heyday-cool1.png"-->
+<!--                width="365"-->
+<!--                class="tw-rounded-b-xl tw-rounded-t-xl c-filter"-->
+<!--            />-->
           </kinesis-element>
         </kinesis-container>
       </div>
     </div>
+    <!--endregion-->
     <!--region @Working Experienced-->
     <div
       :class="modeStyle[mode].main"
@@ -131,8 +130,6 @@
         class="tw-w-full"
         align-top
         :dense="windowWidth <= 768"
-        :dark="mode"
-        :class="mode ? 'tw-bg-black' : ''"
       >
         <v-timeline-item
           v-for="(item, i) in info.time"
@@ -173,7 +170,6 @@
               <div :class="modeStyle[mode].main">
                 <v-list
                   dense
-                  :dark="mode"
                   disabled
                   rounded
                   max-height="400"
@@ -245,7 +241,6 @@
             icon
             elevation="6"
             target="_blank"
-            :dark="mode"
             :href="item.production"
             class="tw-ml-auto tw-mr-4 tw-mb-4"
         >
@@ -254,50 +249,10 @@
       </swiper-slide>
     </swiper>
     <!--endregion-->
-    <!--region @Footer-->
-    <div
-      class="tw-fixed tw-flex tw-justify-between tw-w-full tw-bottom-0 tw-text-xs tw-py-2 tw-px-6"
-    >
-<!--      <p-->
-<!--        :class="mode ? 'tw-text-white' : 'tw-text-black'"-->
-<!--        small-->
-<!--        href="https://github.com/heydayle"-->
-<!--      >-->
-<!--        Heyday Lê since 2022-->
-<!--      </p>-->
-      <v-btn icon class="tw-ml-auto" @click="changeMode">
-        <template v-if="mode">
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 512 512"
-            class="tw-animate-fadeInTop100"
-          >
-            <path
-              fill="white"
-              d="M152.62 126.77c0-33 4.85-66.35 17.23-94.77C87.54 67.83 32 151.89 32 247.38C32 375.85 136.15 480 264.62 480c95.49 0 179.55-55.54 215.38-137.85c-28.42 12.38-61.8 17.23-94.77 17.23c-128.47 0-232.61-104.14-232.61-232.61Z"
-            />
-          </svg>
-        </template>
-        <template v-else>
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            class="tw-animate-tiktokIn"
-          >
-            <path
-              fill="black"
-              d="M11 5V1h2v4Zm6.65 2.75l-1.375-1.375l2.8-2.875l1.4 1.425ZM19 13v-2h4v2Zm-8 10v-4h2v4ZM6.35 7.7L3.5 4.925l1.425-1.4L7.75 6.35Zm12.7 12.8l-2.775-2.875l1.35-1.35l2.85 2.75ZM1 13v-2h4v2Zm3.925 7.5l-1.4-1.425l2.8-2.8l.725.675l.725.7ZM12 18q-2.5 0-4.25-1.75T6 12q0-2.5 1.75-4.25T12 6q2.5 0 4.25 1.75T18 12q0 2.5-1.75 4.25T12 18Z"
-            />
-          </svg>
-        </template>
-      </v-btn>
-    </div>
-    <!--endregion-->
-    <div class="tw-flex tw-space-x-2 tw-justify-center">
-      <v-btn rounded :dark="mode" @click="showHourChart = true">Chart</v-btn>
-      <v-btn rounded :dark="mode" @click="showContact = true">Contact</v-btn>
+    <div class="tw-flex tw-space-x-2 tw-mb-6 tw-justify-center">
+      <v-btn rounded @click="showHourChart = true">Chart</v-btn>
+      <v-btn rounded @click="showContact = true">Contact</v-btn>
+      <v-btn rounded @click="toBlog">Blog</v-btn>
     </div>
     <!--region @CONTACT-->
     <v-bottom-sheet v-model="showContact">
@@ -336,7 +291,7 @@
     <!--endregion-->
     <!--region @DIALOG-->
     <v-dialog v-model="showHourChart">
-      <v-card :dark="mode" class="tw-p-4">
+      <v-card class="tw-p-4">
         <v-card-text class="tw-p-4 tw-m-auto">
           <div class="tw-flex tw-m-auto tw-space-x-4">
             <div v-if="info.chartHtml" v-html="info.chartHtml" />
@@ -366,6 +321,7 @@ import "swiper/swiper-bundle.css";
 import Swiper from "../../plugins/swiper";
 
 import info from "../../enums/infomation";
+import style from "../../enums/style";
 //#endregion
 export default {
   components: {
@@ -395,16 +351,9 @@ export default {
       },
       //#endregion
       //region [MODE CONFIG]
-      mode: true,
+      // mode: true,
       modeStyle: {
-        true: {
-          main: "tw-text-white",
-          second: "tw-text-gray-400",
-        },
-        false: {
-          main: "tw-text-black",
-          second: "tw-text-gray-700",
-        },
+        ...style.styleMode
       },
       //#endregion
       //region [SWIPER CONFIG]
@@ -427,15 +376,19 @@ export default {
       windowWidth: null,
     };
   },
-  computed: {},
+  computed: {
+    mode() {
+      return this.$store?.state?.common?.mode
+    }
+  },
   created() {},
   mounted() {
     this.windowWidth = window.innerWidth;
     this.$ga.page("/");
   },
   methods: {
-    changeMode() {
-      this.mode = !this.mode;
+    toBlog() {
+      this.$router.push('/blog')
       this.$ga.page("/");
     },
   },

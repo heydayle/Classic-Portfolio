@@ -1,7 +1,7 @@
 const info = {
         name: 'Le Duong Hung Thinh',
         position: 'Junior Front-end Developer',
-        avatarUrl: 'heydayBlue.jpg',
+        avatarUrl: 'heydayBlue1.jpg',
         summary: [
         "Experienced Frontend Developer with a demonstrated history of working in the information technology and services industry.",
         "2 Years experienced building single page web application with framework Vue, React.",

@@ -1,1 +1,2 @@
 import "./infomation"
+import "./style"
