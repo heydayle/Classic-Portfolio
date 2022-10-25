@@ -4,6 +4,7 @@
     <div class="tw-flex tw-flex-col tw-flex-col-reverse md:tw-flex-row">
       <div class="tw-flex-1 tw-pr-2">
         <div
+            :class="!mode ? 'tw-bg-black' : 'tw-bg-white'"
             class="tw-flex tw-flex-1 tw-flex-col md:tw-flex-row tw-sticky tw-top-4 tw-justify-between tw-backdrop-blur-xl tw-items-center tw-z-10 tw-rounded-lg tw-p-2"
         >
           <div>
@@ -25,7 +26,7 @@
                 target="_blank"
                 icon
             >
-              <v-icon :color="mode ? 'white' : 'black'">
+              <v-icon :color="!mode ? 'white' : 'black'">
                 {{ item.iconUrl }}
               </v-icon>
             </v-btn>
@@ -281,7 +282,7 @@
             target="_blank"
             icon
           >
-            <v-icon color="black">
+            <v-icon :color="!mode ? 'white' : 'black'">
               {{ item.iconUrl }}
             </v-icon>
           </v-btn>
