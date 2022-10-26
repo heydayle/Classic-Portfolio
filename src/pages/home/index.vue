@@ -8,11 +8,11 @@
             class="tw-flex tw-flex-1 tw-flex-col md:tw-flex-row tw-sticky tw-top-4 tw-justify-between tw-backdrop-blur-xl tw-items-center tw-z-10 tw-rounded-lg tw-p-2"
         >
           <div>
-            <h1 :class="modeStyle[mode].main" class="tw-text-2xl tw-font-bold">
+            <h1 :class="modeStyle.main" class="tw-text-2xl tw-font-bold">
               {{ info.name }}
             </h1>
             <h2
-                :class="modeStyle[mode].main"
+                :class="modeStyle.main"
                 class="tw-text-lg tw-text-center md:tw-text-left"
             >
               {{ info.position }}
@@ -34,7 +34,7 @@
         </div>
         <hr class="tw-mt-2" />
         <div class="tw-py-2">
-          <div :class="modeStyle[mode].main" class="tw-text-md tw-font-bold">
+          <div :class="modeStyle.main" class="tw-text-md tw-font-bold">
             Summary
           </div>
           <v-list
@@ -65,7 +65,7 @@
               </template>
             </v-list-item-group>
           </v-list>
-          <div :class="modeStyle[mode].main" class="tw-text-md tw-font-bold">
+          <div :class="modeStyle.main" class="tw-text-md tw-font-bold">
             Technical skill
           </div>
           <v-list
@@ -121,7 +121,7 @@
     <!--endregion-->
     <!--region @Working Experienced-->
     <div
-      :class="modeStyle[mode].main"
+      :class="modeStyle.main"
       class="tw-text-md tw-text-center tw-pl-4 tw-font-bold"
     >
       Working Experienced
@@ -142,33 +142,33 @@
         >
           <template v-slot:opposite>
             <span
-              :class="modeStyle[mode].main"
+              :class="modeStyle.main"
               class="font-weight-bold tw-border tw-border-0.5 tw-rounded-lg tw-p-4 tw-whitespace-pre-line tw-text-center"
               v-text="item.year"
             ></span>
           </template>
           <div class="tw-space-y-3">
             <h2
-              :class="modeStyle[mode].main"
+              :class="modeStyle.main"
               class="headline font-weight-light"
             >
               {{ item.company }}
             </h2>
             <span
               v-if="windowWidth < 769"
-              :class="modeStyle[mode].second"
+              :class="modeStyle.second"
               class="font-weight-bold tw-py-0.5 tw-whitespace-pre-line tw-text-center"
               v-text="item.year"
             />
             <div class="tw-space-y-1">
-              <div :class="modeStyle[mode].main">
+              <div :class="modeStyle.main">
                 Position: <b>{{ item.position }}</b>
               </div>
-              <div :class="modeStyle[mode].main">
+              <div :class="modeStyle.main">
                 Project: <b>{{ item.project }}</b>
               </div>
-              <div :class="modeStyle[mode].main">Technique:</div>
-              <div :class="modeStyle[mode].main">
+              <div :class="modeStyle.main">Technique:</div>
+              <div :class="modeStyle.main">
                 <v-list
                   dense
                   disabled
@@ -206,7 +206,7 @@
     <!--endregion-->
     <!--region @Project-->
     <div
-      :class="modeStyle[mode].main"
+      :class="modeStyle.main"
       class="tw-text-md tw-text-center tw-p-4 tw-font-bold"
     >
       Projects
@@ -227,7 +227,7 @@
           <div>
             <hr class="tw-my-4">
             <span
-                :class="modeStyle[mode].second"
+                :class="modeStyle.second"
                 class="tw-block"
                 v-for="tech in item.techs"
                 :key="tech"
@@ -245,7 +245,7 @@
             :href="item.production"
             class="tw-ml-auto tw-mr-4 tw-mb-4"
         >
-          <v-icon :class="modeStyle[mode].main" class="tw-animate-pulse"> mdi-arrow-right </v-icon>
+          <v-icon :class="modeStyle.main" class="tw-animate-pulse"> mdi-arrow-right </v-icon>
         </v-btn>
       </swiper-slide>
     </swiper>
@@ -322,7 +322,6 @@ import "swiper/swiper-bundle.css";
 import Swiper from "../../plugins/swiper";
 
 import info from "../../enums/infomation";
-import style from "../../enums/style";
 //#endregion
 export default {
   components: {
@@ -352,10 +351,6 @@ export default {
       },
       //#endregion
       //region [MODE CONFIG]
-      // mode: true,
-      modeStyle: {
-        ...style.styleMode
-      },
       //#endregion
       //region [SWIPER CONFIG]
       swiperOption: {
@@ -380,6 +375,9 @@ export default {
   computed: {
     mode() {
       return this.$store?.state?.common?.mode || false
+    },
+    modeStyle() {
+      return this.$store?.state?.common?.modeStyle
     }
   },
   created() {},

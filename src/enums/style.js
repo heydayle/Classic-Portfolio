@@ -1,10 +1,10 @@
 const style = {
   styleMode: {
-    true: {
+    dark: {
       main: "tw-text-white",
       second: "tw-text-gray-400",
     },
-    false: {
+    light: {
       main: "tw-text-black",
       second: "tw-text-gray-700",
     },
