@@ -158,7 +158,7 @@ module.exports = {
         fireFlyMove: "fireFlyMove 6s infinite",
         waves: "waves 8s infinite",
         waves9: "waves 8020ms infinite"
-      }, 
+      },
     },
     screens: {
       xs: "376px",
@@ -174,6 +174,9 @@ module.exports = {
     colors: {
       ...color,
     },
+    lineClamp: ['responsive', 'hover']
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/line-clamp'),
+  ],
 };

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="tw-p-4">
     <!--region @Summary-->
     <div class="tw-flex tw-flex-col tw-flex-col-reverse md:tw-flex-row">
       <div class="tw-flex-1 tw-pr-2">
@@ -250,11 +250,13 @@
       </swiper-slide>
     </swiper>
     <!--endregion-->
+    <!--region @Button bottom-->
     <div class="tw-flex tw-space-x-2 tw-mb-6 tw-justify-center">
       <v-btn rounded @click="showHourChart = true">Chart</v-btn>
       <v-btn rounded @click="showContact = true">Contact</v-btn>
       <v-btn rounded @click="toBlog">Blog</v-btn>
     </div>
+    <!--endregion-->
     <!--region @CONTACT-->
     <v-bottom-sheet v-model="showContact">
       <v-sheet class="text-center" height="200px">
@@ -302,13 +304,13 @@
     </v-dialog>
     <!--endregion-->
     <!--region @CURSOR-->
-    <cursor-fx
-      :config="cursorConfig"
-      color="#118ab2"
-      color-hover="#06d6a0"
-      outside-size="65px"
-      hide-inside
-    />
+<!--    <cursor-fx-->
+<!--      :config="cursorConfig"-->
+<!--      color="#118ab2"-->
+<!--      color-hover="#06d6a0"-->
+<!--      outside-size="65px"-->
+<!--      hide-inside-->
+<!--    />-->
     <!--endregion-->
   </div>
 </template>
@@ -316,7 +318,7 @@
 <script>
 //region [IMPORT]
 import { KinesisContainer, KinesisElement } from "vue-kinesis";
-import { CursorFx } from "@luxdamore/vue-cursor-fx";
+// import { CursorFx } from "@luxdamore/vue-cursor-fx";
 
 import "swiper/swiper-bundle.css";
 import Swiper from "../../plugins/swiper";
@@ -327,7 +329,7 @@ export default {
   components: {
     KinesisContainer,
     KinesisElement,
-    CursorFx,
+    // CursorFx,
     ...Swiper.components,
   },
   data() {
@@ -347,7 +349,7 @@ export default {
           min: 0.5,
           max: 1,
         },
-        opacity: 0.8,
+        opacity: 1,
       },
       //#endregion
       //region [MODE CONFIG]
@@ -383,6 +385,7 @@ export default {
   created() {},
   mounted() {
     this.windowWidth = window.innerWidth;
+    window.scrollTo(0,0)
     this.$ga.page("/");
   },
   methods: {
