@@ -38,31 +38,30 @@ export default {
 };
 </script>
 <template>
-  <div>
+  <v-card flat>
     <!--region @Navigator-->
-    <div
-      :class="`tw-bg-${mode ? 'black' : 'white'}`"
+    <v-card-title
+        :class="`tw-bg-${mode ? 'black' : 'white'}`"
       class="tw-flex tw-items-center tw-p-2 tw-sticky tw-top-0 tw-z-10 tw-border tw-border-t-0 tw-border-l-0 tw-border-r-0 tw-border-b-1"
     >
       <v-btn icon title="Go home" @click="goBack">
         <v-icon> mdi-arrow-left </v-icon>
       </v-btn>
       <div
-        :class="modeStyle.main"
         class="tw-flex-1 tw-text-md tw-text-center tw-pl-4 tw-font-bold"
+        v-text="`BLOG`"
       >
-        Blog's Heyday
       </div>
       <v-btn icon title="Go home" @click="goBack">
         <v-icon> mdi-arrow-right </v-icon>
       </v-btn>
-    </div>
+    </v-card-title>
     <!--endregion-->
     <!--region @Main blog-->
     <div class="tw-p-4">
       <v-container>
         <v-row>
-          <v-col cols="3" v-for="(item, index) in 8" :key="index">
+          <v-col cols="12" :sm="6" :md="4" :lg="3" v-for="(item, index) in 8" :key="index">
             <v-hover v-slot="{ hover }">
               <v-card
                 class="tw-border tw-rounded tw-rounded-2xl tw-transition tw-transition-all tw-duration-100"
@@ -114,5 +113,5 @@ export default {
       </v-container>
     </div>
     <!--endregion-->
-  </div>
+  </v-card>
 </template>
