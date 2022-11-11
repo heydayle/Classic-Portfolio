@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-main>
-      <div class="tw-text-white">
+      <div class="tw-m-auto tw-text-white">
         <router-view :key="$route.fullPath" />
         <!--region @Footer-->
         <div

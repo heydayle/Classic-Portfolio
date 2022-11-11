@@ -91,7 +91,7 @@ const info = {
         "Optimize code and flow Front-end and Back end.",
         "Team work.",
       ],
-      technique: ["React Native, Reactjs.", "Nodejs, Graphql."],
+      technique: ["React Native, Reactjs.", "Nodejs, GraphQL."],
       adv: [
         "Learn and proficient in Graphql.",
         "Learn how to solve problems quickly and clearly.",
